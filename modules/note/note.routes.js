@@ -6,7 +6,7 @@ const noteRouter = Router();
 noteRouter
     .post('/create', noteCtrl.create)
     .put('/update', noteCtrl.update)
-    .delete('/delete', noteCtrl.delete)
+    .delete('/delete', noteCtrl.deleteNote)
     .get('/all', noteCtrl.getAll)
 
 export default noteRouter
