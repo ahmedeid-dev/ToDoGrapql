@@ -1,4 +1,4 @@
-import Note from './../../database/model/note.model.js';
+import Note from './../../../database/model/note.model.js';
 import asyncHandler from "express-async-handler"
 
 export const create = asyncHandler(async (req, res, next) => {

@@ -37,9 +37,9 @@ const userSchema = new Schema({
 userSchema.pre('init', function () {
     this.password = bcrypt.hashSync(this.password, 10)
 })
-userSchema.pre(/^findOne/, function () {
-    if (this._update) this._update.password = bcrypt.hashSync(this._update.password, 10)
-})
+// userSchema.pre(/^findOne/, function () {
+//     if (this._update) this._update.password = bcrypt.hashSync(this._update.password, 10)
+// })
 
 const User = model('User', userSchema);
 

@@ -1,6 +1,6 @@
 process.on('unhandledRejection', error => { console.log('unhandledRejection', error) })
+import { bootstrap } from './src/modules/index.routes.js'
 import dbConnection from './database/dbConnection.js'
-import { bootstrap } from './modules/index.routes.js'
 import express from 'express'
 
 const app = express()
