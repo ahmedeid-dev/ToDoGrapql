@@ -41,11 +41,7 @@ export const addNote = {
 }
 
 export const updateNote = {
-    type: new GraphQLObjectType({
-        title: { type: GraphQLString },
-        description: { type: GraphQLString },
-        user: { type: GraphQLID }
-    }),
+    type: specificNoteType,
     args: {
         noteId: { type: GraphQLID },
         title: { type: GraphQLString },
