@@ -20,6 +20,13 @@ const userSchema = new Schema({
         minlength: 3,
         maxlength: 255,
     },
+    status: {
+        type: String,
+        enum: ['active', 'inactive'],
+        default: 'active',
+        trim: true,
+        lowercase: true,
+    },
     notes: [{
         type: Types.ObjectId,
         ref: 'Note'

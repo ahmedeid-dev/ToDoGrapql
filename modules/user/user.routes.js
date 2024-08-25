@@ -6,7 +6,9 @@ const userRouter = Router();
 userRouter
     .post('/login', userCtrl.login)
     .post('/signup', userCtrl.signup)
-    .post('/logout', userCtrl.logout)
-    
+    .patch('/changePassword', userCtrl.changePassword)
+    .put('/update', userCtrl.update)
+    .delete('/delete', userCtrl.deleteAccount)
+
 
 export default userRouter
