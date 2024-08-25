@@ -9,7 +9,7 @@ export const login = asyncHandler(async (req, res, next) => {
     const user = await User.findOne({ email })
     !user || user.password !== password && res.status(400).json({ message: 'Invalid credentials' })
 
-    user.status = 'inactive' && res.status(401).json('you are not active , please contact admin')
+    user.status = 'inactive' && res.status(401).json({ message: 'you are not active , please contact admin' })
     const token = jwt.sign({
         userId: user._id,
         email,
@@ -44,7 +44,7 @@ export const changePassword = asyncHandler(async (req, res, next) => {
 
     const user = await User.findOne({ email })
     !user || user.password !== oldPassword && res.status(400).json({ message: 'Invalid credentials' })
-    status == 'inactive' && res.status(401).json('you are not active , please contact admin')
+    status == 'inactive' && res.status(401).json({ message: 'you are not active , please contact admin' })
 
     user.password = newPassword
     await user.save()
@@ -67,7 +67,7 @@ export const update = asyncHandler(async (req, res, next) => {
 
     const user = await User.findOne({ email })
     !user && res.status(400).json({ message: 'User not found' })
-    status == 'inactive' && res.status(401).json('you are not active , please contact admin')
+    status == 'inactive' && res.status(401).json({ message: 'you are not active , please contact admin' })
 
     name && (user.name = name)
     email && (user.email = newEmail)
@@ -89,7 +89,7 @@ export const deleteAccount = asyncHandler(async (req, res, next) => {
     const user = await User.findOne({ email })
     !user && res.status(400).json({ message: 'Invalid credentials' })
 
-    status == 'inactive' && res.status(401).json('you are not active , please contact admin')
+    status == 'inactive' && res.status(401).json({ message: 'you are not active , please contact admin' })
 
     user.status = 'inactive'
     await user.save()

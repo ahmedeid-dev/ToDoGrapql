@@ -7,9 +7,10 @@ const noteRouter = Router();
 noteRouter.use(protectedRoute)
 
 noteRouter
-    .post('/create', noteCtrl.create)
-    .put('/update', noteCtrl.update)
-    .delete('/delete', noteCtrl.deleteNote)
-    .get('/all', noteCtrl.getAll)
+    .post('/', noteCtrl.create)
+    .put('/:id', noteCtrl.update)
+    .delete('/:id', noteCtrl.deleteNote)
+    .get('/', noteCtrl.getAll)
+    .get('/:id', noteCtrl.getOne)
 
 export default noteRouter
