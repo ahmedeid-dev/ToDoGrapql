@@ -1,7 +1,10 @@
+import protectedRoute from './../../middleware/auth.middleware.js';
 import * as noteCtrl from './note.controllers.js'
 import { Router } from "express";
 
 const noteRouter = Router();
+
+noteRouter.use(protectedRoute)
 
 noteRouter
     .post('/create', noteCtrl.create)
